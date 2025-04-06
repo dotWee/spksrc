@@ -1,0 +1,12 @@
+[{
+    "step_title": "Upgrading Rclone",
+    "items": [{
+        "desc": "Your existing Rclone configurations will be preserved."
+    }, {
+        "desc": "The web GUI credentials and advanced settings will be maintained from your previous installation."
+    }, {
+        "desc": "After the upgrade, you can access the Rclone web GUI through DSM at the configured port (default: 5572)."
+    }, {
+        "desc": "This version includes enhanced configuration options including TLS/SSL support, custom base URL, and performance settings. You can modify these settings by editing the environment variables file at: <code>/var/packages/rclone/var/environment-variables</code>"
+    }]
+}]

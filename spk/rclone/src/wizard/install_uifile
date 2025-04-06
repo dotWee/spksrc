@@ -1,0 +1,128 @@
+[{
+    "step_title": "Rclone Web GUI Configuration",
+    "items": [{
+        "type": "textfield",
+        "desc": "Set the username for the rclone web GUI. Default is 'admin'.",
+        "subitems": [{
+            "key": "wizard_username",
+            "desc": "Username",
+            "defaultValue": "admin",
+            "validator": {
+                "allowBlank": false,
+                "regex": {
+                    "expr": "/^[^\\s]+$/",
+                    "errorText": "Username cannot contain spaces."
+                }
+            }
+        }]
+    }, {
+        "type": "password",
+        "desc": "Set the password for the rclone web GUI. Default is 'admin'.",
+        "subitems": [{
+            "key": "wizard_password",
+            "desc": "Password",
+            "defaultValue": "admin",
+            "validator": {
+                "allowBlank": false,
+                "minLength": 4,
+                "maxLength": 64,
+                "regex": {
+                    "expr": "/^[^\\s]+$/",
+                    "errorText": "Password cannot contain spaces."
+                }
+            }
+        }]
+    }, {
+        "desc": "<p>The rclone web GUI provides a graphical interface to manage your cloud storage. After installation, you can access it through DSM at the configured port (default: 5572).</p><p>For more information on using rclone, visit <a href='https://rclone.org/docs/' target='_blank'>https://rclone.org/docs/</a></p>"
+    }]
+}, {
+    "step_title": "Advanced Configuration",
+    "items": [{
+        "type": "textfield",
+        "desc": "Configure the base URL path for rclone web GUI. This is useful for reverse proxy setups. Leave empty for root path (default).",
+        "subitems": [{
+            "key": "wizard_baseurl",
+            "desc": "Base URL",
+            "defaultValue": "",
+            "validator": {
+                "allowBlank": true
+            }
+        }]
+    }, {
+        "type": "checkbox",
+        "desc": "Additional settings",
+        "subitems": [{
+            "key": "wizard_no_open_browser",
+            "desc": "Don't automatically open browser when starting rclone web GUI",
+            "defaultValue": false
+        }, {
+            "key": "wizard_enable_metrics",
+            "desc": "Enable Prometheus metrics (accessible at /metrics path)",
+            "defaultValue": false
+        }]
+    }, {
+        "type": "combobox",
+        "desc": "Set the server read timeout for rclone operations",
+        "subitems": [{
+            "key": "wizard_read_timeout",
+            "desc": "Read Timeout",
+            "defaultValue": "1h0m0s",
+            "editable": true,
+            "items": ["30m0s", "1h0m0s", "2h0m0s", "5h0m0s", "10h0m0s"]
+        }]
+    }, {
+        "type": "combobox",
+        "desc": "Set the server write timeout for rclone operations",
+        "subitems": [{
+            "key": "wizard_write_timeout",
+            "desc": "Write Timeout",
+            "defaultValue": "1h0m0s",
+            "editable": true,
+            "items": ["30m0s", "1h0m0s", "2h0m0s", "5h0m0s", "10h0m0s"]
+        }]
+    }]
+}, {
+    "step_title": "TLS/SSL Configuration (Optional)",
+    "items": [{
+        "type": "checkbox",
+        "desc": "Enable HTTPS for secure access to the rclone web GUI",
+        "subitems": [{
+            "key": "wizard_enable_tls",
+            "desc": "Enable HTTPS (TLS/SSL)",
+            "defaultValue": false
+        }]
+    }, {
+        "type": "textfield",
+        "desc": "Path to TLS certificate file (required if HTTPS is enabled)",
+        "subitems": [{
+            "key": "wizard_tls_cert",
+            "desc": "TLS Certificate Path",
+            "defaultValue": "${SYNOPKG_PKGVAR}/config/cert.pem",
+            "validator": {
+                "allowBlank": true
+            }
+        }]
+    }, {
+        "type": "textfield",
+        "desc": "Path to TLS private key file (required if HTTPS is enabled)",
+        "subitems": [{
+            "key": "wizard_tls_key",
+            "desc": "TLS Private Key Path",
+            "defaultValue": "${SYNOPKG_PKGVAR}/config/key.pem",
+            "validator": {
+                "allowBlank": true
+            }
+        }]
+    }, {
+        "type": "combobox",
+        "desc": "Minimum TLS version to accept",
+        "subitems": [{
+            "key": "wizard_min_tls_version",
+            "desc": "Min TLS Version",
+            "defaultValue": "tls1.2",
+            "items": ["tls1.0", "tls1.1", "tls1.2", "tls1.3"]
+        }]
+    }, {
+        "desc": "<p><b>Note:</b> If you enable HTTPS, you must provide valid certificate and key files. After installation, you can place them in the specified locations. If the files don't exist when rclone starts, it will fall back to HTTP.</p>"
+    }]
+}]

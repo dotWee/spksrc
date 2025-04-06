@@ -1,0 +1,20 @@
+# Custom rclone environment variables
+
+# Basic authentication settings
+RC_USER=admin
+RC_PASS=admin
+
+# Web GUI settings
+# RC_BASEURL=             # Base URL for reverse proxy setups (e.g., /rclone)
+# RC_NO_OPEN_BROWSER=true # Set to true to prevent browser auto-opening
+# RC_ENABLE_METRICS=true  # Set to true to enable Prometheus metrics
+
+# Performance settings
+# RC_READ_TIMEOUT=1h0m0s  # Server read timeout
+# RC_WRITE_TIMEOUT=1h0m0s # Server write timeout
+
+# TLS/HTTPS settings
+# RC_ENABLE_TLS=true      # Set to true to enable HTTPS
+# RC_TLS_CERT=/var/packages/rclone/var/config/cert.pem # Path to TLS certificate
+# RC_TLS_KEY=/var/packages/rclone/var/config/key.pem   # Path to TLS private key
+# RC_MIN_TLS_VERSION=tls1.2 # Minimum TLS version to accept
